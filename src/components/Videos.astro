@@ -1,9 +1,7 @@
 ---
-// Video order: 3,6,7,10,11,12,14,15 dipindah ke paling bawah
-const allNums = [1,2,4,5,8,9,13,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,3,6,7,10,11,12,14,15]
-const videos = allNums.map((n, i) => ({
-  src: `/videos/video_${String(n).padStart(2, '0')}.mp4`,
-  thumb: `/thumbnails/thumb_${String(n).padStart(2, '0')}.jpg`,
+const videos = Array.from({ length: 30 }, (_, i) => ({
+  src: `/videos/video_${String(i + 1).padStart(2, '0')}.mp4`,
+  thumb: `/thumbnails/thumb_${String(i + 1).padStart(2, '0')}.jpg`,
   label: `Video ${i + 1}`,
 }))
 ---
