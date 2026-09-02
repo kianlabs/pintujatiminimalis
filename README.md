@@ -13,20 +13,41 @@ Dibangun dengan **Astro** + **Tailwind CSS v4** + **GSAP**, dengan dukungan **du
 - Tombol WhatsApp mengambang + CTA WhatsApp ganda (Dwi Toto & Ferdi)
 - SEO lengkap: meta, Open Graph, Twitter Card, JSON-LD `LocalBusiness`, sitemap
 - i18n ID/EN dengan `data-i18n` + fallback teks
+- Halaman `/en/` untuk SEO internasional (konten ter-render di server, `hreflang`)
+- Thumbnail otomatis dioptimasi ke AVIF/WebP via `astro:assets` (`<Picture>`)
 
 ## Struktur
 
 ```
 /
-├── public/            # aset statis (gambar, video, thumbnail)
+├── public/            # aset statis (video, favicon, og-image, robots.txt)
 ├── src/
-│   ├── components/    # section UI (Hero, CNCSection, Videos, dll)
+│   ├── assets/        # thumbnail sumber yang dioptimasi astro:assets
+│   ├── components/    # section UI (Hero, CNCSection, Videos, Sections, dll)
 │   ├── layouts/       # Layout (SEO, head, i18n init)
-│   ├── pages/         # index.astro
+│   ├── pages/         # index.astro (ID) + en/index.astro (EN)
 │   ├── scripts/       # videoModal.ts (logic modal + load-more)
 │   ├── styles/        # global.css (Tailwind @theme)
 │   └── i18n/          # i18n.ts + translations.ts
 └── package.json
+```
+
+## Domain / Deployment
+
+Situs sementara di-deploy ke Vercel dengan domain `https://pintujatiminimalis-astro.vercel.app`.
+
+### Mengembalikan ke domain produksi (`pintujatiminimalis.my.id`)
+
+Saat domain final siap, cukup ubah satu nilai di `astro.config.mjs`:
+
+```js
+site: 'https://pintujatiminimalis.my.id'
+```
+
+Semua referensi URL (canonical, `hreflang`, og/twitter image, JSON-LD, sitemap) otomatis mengikuti `site` karena `Layout.astro` membaca `Astro.site`. Jangan lupa juga ubah `public/robots.txt`:
+
+```
+Sitemap: https://pintujatiminimalis.my.id/sitemap-index.xml
 ```
 
 ## Commands
@@ -38,3 +59,4 @@ Dibangun dengan **Astro** + **Tailwind CSS v4** + **GSAP**, dengan dukungan **du
 | `npm run build`    | Build produksi ke `./dist/`             |
 | `npm run preview`  | Preview hasil build                     |
 | `npm run astro ...`| Jalankan CLI Astro                      |
+
