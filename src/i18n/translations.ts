@@ -101,7 +101,7 @@ export const translations = {
     nav_wa: 'WhatsApp',
 
     // Hero
-    hero_title_1: 'Perhutani Teak Door',
+    hero_title_1: 'Pintu Jati Perhutani',
     hero_title_2: 'Minimalist & Elegant',
     hero_subtitle: 'Pintu Jati Minimalis crafts doors from authentic Perhutani teak wood — certified, sturdy, and built to last for your dream home.',
     hero_pill_1_title: 'Authentic Perhutani Teak',
