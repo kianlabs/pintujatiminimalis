@@ -15,15 +15,18 @@
 
       <!-- Desktop nav -->
       <div class="hidden lg:flex items-center gap-7">
-        {['Beranda','Tentang Kami','Produk','Galeri','Proses','Kontak'].map((label, i) => {
-          const hrefs = ['#beranda','#tentang','#produk','#galeri','#proses','#kontak']
-          return (
-            <a href={hrefs[i]} class="relative group text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">
-              {label}
-              <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 group-hover:w-full transition-all duration-300"></span>
-            </a>
-          )
-        })}
+        {[
+          ['Beranda','#beranda'],
+          ['Produk','#produk'],
+          ['Video','#video'],
+          ['Proses','#proses'],
+          ['Kontak','#kontak'],
+        ].map(([label, href]) => (
+          <a href={href} class="relative group text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">
+            {label}
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 group-hover:w-full transition-all duration-300"></span>
+          </a>
+        ))}
       </div>
 
       <!-- CTA + Hamburger -->
@@ -48,7 +51,13 @@
   <!-- Mobile menu -->
   <div id="mobile-menu" class="lg:hidden max-h-0 overflow-hidden opacity-0 transition-all duration-300 bg-surface-800/98 backdrop-blur-md">
     <div class="px-4 pb-4 flex flex-col gap-1">
-      {[['Beranda','#beranda'],['Tentang Kami','#tentang'],['Produk','#produk'],['Galeri','#galeri'],['Proses','#proses'],['Kontak','#kontak']].map(([label, href]) => (
+      {[
+        ['Beranda','#beranda'],
+        ['Produk','#produk'],
+        ['Video','#video'],
+        ['Proses','#proses'],
+        ['Kontak','#kontak'],
+      ].map(([label, href]) => (
         <a href={href} class="mobile-link text-gray-300 hover:text-white hover:bg-white/5 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors">{label}</a>
       ))}
       <a href="https://wa.me/6281548315366" target="_blank" rel="noreferrer" class="flex items-center justify-center gap-2 bg-green-wa text-white text-sm font-semibold px-5 py-2.5 rounded-full mt-2">
