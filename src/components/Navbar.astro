@@ -74,8 +74,21 @@
 </nav>
 
 <script>
-  import { initI18n } from '../i18n/i18n'
-  initI18n()
+  import { applyTranslations, getLang, setLang } from '../i18n/i18n'
+
+  // Setup toggle button
+  document.querySelectorAll<HTMLElement>('[data-lang-toggle]').forEach(el => {
+    const lang = getLang()
+    el.textContent = lang === 'id' ? 'EN' : 'ID'
+    el.setAttribute('aria-label', lang === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia')
+    el.addEventListener('click', () => {
+      setLang(getLang() === 'id' ? 'en' : 'id')
+      // Update toggle label
+      document.querySelectorAll<HTMLElement>('[data-lang-toggle]').forEach(btn => {
+        btn.textContent = getLang() === 'id' ? 'EN' : 'ID'
+      })
+    })
+  })
 
   const navbar = document.getElementById('navbar')
   const hamburger = document.getElementById('hamburger')

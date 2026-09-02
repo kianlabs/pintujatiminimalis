@@ -76,5 +76,9 @@ const {
   </head>
   <body>
     <slot />
+    <script>
+      import { applyTranslations, getLang } from '../i18n/i18n'
+      applyTranslations(getLang())
+    </script>
   </body>
 </html>
