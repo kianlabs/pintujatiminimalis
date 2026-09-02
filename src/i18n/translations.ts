@@ -101,10 +101,10 @@ export const translations = {
     nav_wa: 'WhatsApp',
 
     // Hero
-    hero_title_1: 'Pintu Jati Perhutani',
-    hero_title_2: 'Minimalist & Elegant',
-    hero_subtitle: 'Pintu Jati Minimalis crafts doors from authentic Perhutani teak wood — certified, sturdy, and built to last for your dream home.',
-    hero_pill_1_title: 'Authentic Perhutani Teak',
+    hero_title_1: 'Minimalist Teak Wood Door',
+    hero_title_2: 'Elegant & Timeless',
+    hero_subtitle: 'Pintu Jati Minimalis crafts doors from authentic certified teak wood — sturdy, durable, and built to last for your dream home.',
+    hero_pill_1_title: 'Certified Teak Wood',
     hero_pill_1_desc: 'Certified, legal & trusted',
     hero_pill_2_title: 'Precise & Neat',
     hero_pill_2_desc: 'Perfect finishing detail',
@@ -118,12 +118,12 @@ export const translations = {
     cnc_label: 'Our Technology',
     cnc_title_1: 'Crafted with',
     cnc_title_2: 'CNC Machine',
-    cnc_desc: 'Pintu Jati Minimalis uses CNC (Computer Numerical Control) machines to carve every detail of Perhutani teak doors with high precision and consistency.',
+    cnc_desc: 'Pintu Jati Minimalis uses CNC (Computer Numerical Control) machines to carve every detail of our teak wood doors with high precision and consistency.',
 
     // Videos
     video_label: 'Our Videos',
     video_title: 'See Our Process & Work',
-    video_desc: 'Watch videos of Perhutani teak door making and installation directly from our workshop.',
+    video_desc: 'Watch videos of our teak wood door making and installation directly from our workshop.',
     video_load_more: 'Show More',
     video_tiktok_label: 'Our TikTok',
     video_tiktok_title: 'Follow Us on TikTok',
@@ -131,10 +131,10 @@ export const translations = {
 
     // Advantages
     adv_label: 'Why Us',
-    adv_title: 'The Advantages of Perhutani Teak Doors',
-    adv_desc: 'We don\'t just make doors — we deliver authentic Perhutani teak doors that last long and beautify your home.',
-    adv_1_title: 'Authentic Perhutani Teak',
-    adv_1_desc: 'Using certified authentic Perhutani teak — legal, dense, and lasting for decades.',
+    adv_title: 'The Advantages of Our Teak Doors',
+    adv_desc: 'We don\'t just make doors — we deliver authentic teak wood doors that last long and beautify your home.',
+    adv_1_title: 'Certified Teak Wood',
+    adv_1_desc: 'Using certified authentic teak wood — legal, dense, and lasting for decades.',
     adv_2_title: 'Experienced Craftsmen',
     adv_2_desc: 'Handcrafted by experienced artisans who pay attention to every detail of the door.',
     adv_3_title: 'Guaranteed',
@@ -155,7 +155,7 @@ export const translations = {
     process_2_title: 'Survey & Quotation',
     process_2_desc: 'Our team surveys the location, measures the door frame, and provides a transparent price quote.',
     process_3_title: 'Door Production',
-    process_3_desc: 'The door is made from selected Perhutani teak wood by experienced craftsmen.',
+    process_3_desc: 'The door is crafted from selected quality teak wood by experienced craftsmen.',
     process_4_title: 'Finishing & Installation',
     process_4_desc: 'Fine finishing and door installation done directly at your location until perfect.',
 
@@ -174,13 +174,13 @@ export const translations = {
     loc_cta_ferdi: 'Chat Ferdi',
 
     // Footer
-    footer_tagline: 'Authentic Perhutani Teak',
-    footer_desc: 'Specialist in making authentic Perhutani teak doors in Boyolali. Certified, sturdy, and durable for your dream home.',
+    footer_tagline: 'Quality Teak Wood Doors',
+    footer_desc: 'Specialist in making quality teak wood doors in Boyolali, Central Java. Certified, sturdy, and durable for your dream home.',
     footer_follow: 'Follow Us',
     footer_menu: 'Menu',
     footer_contact: 'Contact',
     footer_copyright: 'Pintu Jati Minimalis. All rights reserved.',
-    footer_sub: 'Authentic Perhutani Teak — Boyolali, Central Java',
+    footer_sub: 'Quality Teak Wood Doors — Boyolali, Central Java',
 
     // WA message
     wa_text: 'Hello%2C%20I%20would%20like%20to%20consult%20about%20teak%20minimalist%20doors',
