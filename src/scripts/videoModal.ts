@@ -28,8 +28,6 @@ export function createVideoModal(cfg: VideoModalConfig) {
   function openModal(idx: number) {
     currentIdx = idx
     modalVideo!.src = cards[idx].dataset.src || ''
-    modalVideo!.load()
-    modalVideo!.play()
     const visible = getVisibleCards()
     const visiblePos = visible.findIndex(c => c.dataset.idx === String(idx))
     const prefix = cfg.counterPrefix ? `${cfg.counterPrefix} ` : ''
@@ -37,6 +35,9 @@ export function createVideoModal(cfg: VideoModalConfig) {
     modal!.classList.remove('hidden')
     modal!.classList.add('flex')
     document.body.style.overflow = 'hidden'
+    // Load & play safely once metadata is available, ignoring autoplay rejections
+    modalVideo!.load()
+    modalVideo!.play().catch(() => {})
   }
 
   function closeModal() {
