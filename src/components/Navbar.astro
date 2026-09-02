@@ -82,11 +82,12 @@
     el.textContent = lang === 'id' ? 'EN' : 'ID'
     el.setAttribute('aria-label', lang === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia')
     el.addEventListener('click', () => {
-      setLang(getLang() === 'id' ? 'en' : 'id')
-      // Update toggle label
+      const newLang = getLang() === 'id' ? 'en' : 'id'
+      setLang(newLang)
       document.querySelectorAll<HTMLElement>('[data-lang-toggle]').forEach(btn => {
-        btn.textContent = getLang() === 'id' ? 'EN' : 'ID'
+        btn.textContent = newLang === 'id' ? 'EN' : 'ID'
       })
+      document.documentElement.lang = newLang
     })
   })
 
