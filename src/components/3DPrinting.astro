@@ -19,7 +19,7 @@ const printVideos = Array.from({ length: 4 }, (_, i) => {
 <section id="3dprinting" class="py-12 sm:py-24 bg-surface-900">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div id="3dp-heading" class="text-center mb-12">
+    <div id="tdp-heading" class="text-center mb-12">
       <span data-i18n="tdp_label" class="text-primary-400 text-xs font-bold uppercase tracking-[0.2em] mb-3 block">{t.tdp_label}</span>
       <h2 class="text-4xl lg:text-5xl font-black text-white mb-4">
         <span data-i18n="tdp_title_1">{t.tdp_title_1}</span> <span class="text-primary-300" data-i18n="tdp_title_2">{t.tdp_title_2}</span>
@@ -30,7 +30,7 @@ const printVideos = Array.from({ length: 4 }, (_, i) => {
     </div>
 
     <!-- 4 Video 3D Printing -->
-    <div id="3dp-videos" class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+    <div id="tdp-videos" class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
       {printVideos.map(({ src, thumb, label }, idx) => (
         <button
           class="tdp-card group relative rounded-xl overflow-hidden aspect-[9/16] bg-surface-700 border border-primary-500/30 hover:border-primary-500 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
@@ -86,13 +86,13 @@ const printVideos = Array.from({ length: 4 }, (_, i) => {
   import { createVideoModal } from '../scripts/videoModal'
   gsap.registerPlugin(ScrollTrigger)
 
-  gsap.fromTo('#3dp-heading', { opacity: 0, y: 40 }, {
+  gsap.fromTo('#tdp-heading', { opacity: 0, y: 40 }, {
     opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
-    scrollTrigger: { trigger: '#3dp-heading', start: 'top 85%' }
+    scrollTrigger: { trigger: '#tdp-heading', start: 'top 85%' }
   })
-  gsap.fromTo('#3dp-videos > *', { opacity: 0, y: 30, scale: 0.95 }, {
+  gsap.fromTo('#tdp-videos > *', { opacity: 0, y: 30, scale: 0.95 }, {
     opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.1, ease: 'power2.out',
-    scrollTrigger: { trigger: '#3dp-videos', start: 'top 85%' }
+    scrollTrigger: { trigger: '#tdp-videos', start: 'top 85%' }
   })
 
   createVideoModal({
