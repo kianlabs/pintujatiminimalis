@@ -1,21 +1,31 @@
 ---
-const printVideos = Array.from({ length: 4 }, (_, i) => ({
-  src: `/videos/3dprinting/3dp_${String(i + 1).padStart(2, '0')}.mp4`,
-  thumb: `/thumbnails/3dprinting/3dp_${String(i + 1).padStart(2, '0')}.jpg`,
-  label: `Video 3D Printing ${i + 1}`,
-}))
+import { Picture } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+import { translations } from '../i18n/translations'
+import type { Lang } from '../i18n/translations'
+const { lang = 'id' } = Astro.props
+const t = translations[lang]
+const printThumbs = import.meta.glob('../assets/thumbnails/3dprinting/3dp_*.jpg', { eager: true, import: 'default' })
+const printVideos = Array.from({ length: 4 }, (_, i) => {
+  const n = String(i + 1).padStart(2, '0')
+  return {
+    src: `/videos/3dprinting/3dp_${n}.mp4`,
+    thumb: printThumbs[`../assets/thumbnails/3dprinting/3dp_${n}.jpg`] as ImageMetadata,
+    label: `Video 3D Printing ${i + 1}`,
+  }
+})
 ---
 
 <section id="3dprinting" class="py-12 sm:py-24 bg-surface-900">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <div id="3dp-heading" class="text-center mb-12">
-      <span data-i18n="tdp_label" class="text-primary-400 text-xs font-bold uppercase tracking-[0.2em] mb-3 block">Teknologi 3D</span>
+      <span data-i18n="tdp_label" class="text-primary-400 text-xs font-bold uppercase tracking-[0.2em] mb-3 block">{t.tdp_label}</span>
       <h2 class="text-4xl lg:text-5xl font-black text-white mb-4">
-        <span data-i18n="tdp_title_1">Dibuat dengan</span> <span class="text-primary-300" data-i18n="tdp_title_2">Teknologi 3D Printing</span>
+        <span data-i18n="tdp_title_1">{t.tdp_title_1}</span> <span class="text-primary-300" data-i18n="tdp_title_2">{t.tdp_title_2}</span>
       </h2>
       <p data-i18n="tdp_desc" class="text-gray-400 text-lg max-w-2xl mx-auto">
-        Pintu Jati Minimalis menghadirkan inovasi desain menggunakan teknologi 3D printing untuk prototipe dan detail ornamen pintu yang presisi dan konsisten.
+        {t.tdp_desc}
       </p>
     </div>
 
@@ -28,7 +38,7 @@ const printVideos = Array.from({ length: 4 }, (_, i) => ({
           data-idx={idx}
           aria-label={`Putar ${label}`}
         >
-          <img src={thumb} alt={label} loading="lazy"
+          <Picture src={thumb} alt={label} loading="lazy" formats={['avif', 'webp']}
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           <div class="absolute inset-0 bg-surface-900/30 group-hover:bg-surface-900/10 transition-colors duration-300"></div>
           <div class="absolute inset-0 flex items-center justify-center">
@@ -73,6 +83,7 @@ const printVideos = Array.from({ length: 4 }, (_, i) => ({
 <script>
   import { gsap } from 'gsap'
   import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  import { createVideoModal } from '../scripts/videoModal'
   gsap.registerPlugin(ScrollTrigger)
 
   gsap.fromTo('#3dp-heading', { opacity: 0, y: 40 }, {
@@ -84,48 +95,14 @@ const printVideos = Array.from({ length: 4 }, (_, i) => ({
     scrollTrigger: { trigger: '#3dp-videos', start: 'top 85%' }
   })
 
-  const modal = document.getElementById('tdp-modal')
-  const modalVideo = document.getElementById('tdp-modal-video') as HTMLVideoElement
-  const modalClose = document.getElementById('tdp-modal-close')
-  const modalPrev = document.getElementById('tdp-modal-prev')
-  const modalNext = document.getElementById('tdp-modal-next')
-  const modalCounter = document.getElementById('tdp-modal-counter')
-  const cards = document.querySelectorAll<HTMLButtonElement>('.tdp-card')
-  let currentIdx = 0
-
-  function openModal(idx: number) {
-    currentIdx = idx
-    modalVideo!.src = cards[idx].dataset.src || ''
-    modalVideo!.load()
-    modalVideo!.play()
-    modalCounter!.textContent = `3D ${idx + 1} / ${cards.length}`
-    modal!.classList.remove('hidden')
-    modal!.classList.add('flex')
-    document.body.style.overflow = 'hidden'
-  }
-
-  function closeModal() {
-    modalVideo!.pause()
-    modalVideo!.src = ''
-    modal!.classList.add('hidden')
-    modal!.classList.remove('flex')
-    document.body.style.overflow = ''
-  }
-
-  function navigate(dir: number) {
-    const next = (currentIdx + dir + cards.length) % cards.length
-    openModal(next)
-  }
-
-  cards.forEach((card, idx) => {
-    card.addEventListener('click', () => openModal(idx))
-  })
-
-  modalClose?.addEventListener('click', closeModal)
-  modalPrev?.addEventListener('click', () => navigate(-1))
-  modalNext?.addEventListener('click', () => navigate(1))
-  modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal() })
-  document.addEventListener('keydown', (e) => {
-    if (modal?.classList.contains('flex') && e.key === 'Escape') closeModal()
+  createVideoModal({
+    cardSelector: '.tdp-card',
+    modalId: 'tdp-modal',
+    videoId: 'tdp-modal-video',
+    closeId: 'tdp-modal-close',
+    prevId: 'tdp-modal-prev',
+    nextId: 'tdp-modal-next',
+    counterId: 'tdp-modal-counter',
+    counterPrefix: '3D',
   })
 </script>

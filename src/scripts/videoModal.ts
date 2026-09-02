@@ -1,28 +1,39 @@
 import { gsap } from 'gsap'
 
-export function initVideoModal() {
-  const modal = document.getElementById('video-modal')
-  const modalVideo = document.getElementById('modal-video') as HTMLVideoElement
-  const modalClose = document.getElementById('modal-close')
-  const modalPrev = document.getElementById('modal-prev')
-  const modalNext = document.getElementById('modal-next')
-  const modalCounter = document.getElementById('modal-counter')
-  const allCards = document.querySelectorAll<HTMLButtonElement>('.video-card')
+export interface VideoModalConfig {
+  cardSelector: string
+  modalId: string
+  videoId: string
+  closeId: string
+  prevId: string
+  nextId: string
+  counterId: string
+  counterPrefix?: string
+}
+
+export function createVideoModal(cfg: VideoModalConfig) {
+  const modal = document.getElementById(cfg.modalId)
+  const modalVideo = document.getElementById(cfg.videoId) as HTMLVideoElement
+  const modalClose = document.getElementById(cfg.closeId)
+  const modalPrev = document.getElementById(cfg.prevId)
+  const modalNext = document.getElementById(cfg.nextId)
+  const modalCounter = document.getElementById(cfg.counterId)
+  const cards = document.querySelectorAll<HTMLButtonElement>(cfg.cardSelector)
   let currentIdx = 0
 
   function getVisibleCards(): HTMLButtonElement[] {
-    return Array.from(allCards).filter(c => !c.classList.contains('hidden'))
+    return Array.from(cards).filter(c => !c.classList.contains('hidden'))
   }
 
   function openModal(idx: number) {
     currentIdx = idx
-    const src = allCards[idx].dataset.src || ''
-    modalVideo!.src = src
+    modalVideo!.src = cards[idx].dataset.src || ''
     modalVideo!.load()
     modalVideo!.play()
     const visible = getVisibleCards()
     const visiblePos = visible.findIndex(c => c.dataset.idx === String(idx))
-    modalCounter!.textContent = `${visiblePos + 1} / ${visible.length}`
+    const prefix = cfg.counterPrefix ? `${cfg.counterPrefix} ` : ''
+    modalCounter!.textContent = `${prefix}${visiblePos + 1} / ${visible.length}`
     modal!.classList.remove('hidden')
     modal!.classList.add('flex')
     document.body.style.overflow = 'hidden'
@@ -44,7 +55,7 @@ export function initVideoModal() {
     openModal(Number(nextCard.dataset.idx))
   }
 
-  allCards.forEach((card, idx) => {
+  cards.forEach((card, idx) => {
     card.addEventListener('click', () => openModal(idx))
   })
 
@@ -52,7 +63,6 @@ export function initVideoModal() {
   modalPrev?.addEventListener('click', () => navigate(-1))
   modalNext?.addEventListener('click', () => navigate(1))
   modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal() })
-
   document.addEventListener('keydown', (e) => {
     if (!modal?.classList.contains('flex')) return
     if (e.key === 'Escape') closeModal()

@@ -2,7 +2,10 @@ import { translations, type Lang, type TranslationKey } from './translations'
 
 export function getLang(): Lang {
   if (typeof localStorage === 'undefined') return 'id'
-  return (localStorage.getItem('lang') as Lang) || 'id'
+  const stored = localStorage.getItem('lang') as Lang | null
+  if (stored) return stored
+  const pageLang = document.documentElement.lang as Lang
+  return pageLang === 'en' ? 'en' : 'id'
 }
 
 export function setLang(lang: Lang) {

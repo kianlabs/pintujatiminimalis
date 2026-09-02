@@ -1,4 +1,8 @@
 ---
+import { translations } from '../i18n/translations'
+import type { Lang } from '../i18n/translations'
+const { lang = 'id' } = Astro.props
+const t = translations[lang]
 const year = new Date().getFullYear()
 const quickLinks = [
   { labelKey: 'nav_home', href: '#beranda' },
@@ -19,13 +23,13 @@ const quickLinks = [
           <img src="/logo.jpg" alt="Pintu Jati Minimalis" class="w-10 h-10 rounded-lg object-cover" loading="lazy" />
           <div>
             <div class="text-white font-bold text-lg leading-none">PINTU JATI MINIMALIS</div>
-            <div data-i18n="footer_tagline" class="text-primary-400 text-xs leading-none mt-0.5">Jati Perhutani Asli</div>
+            <div data-i18n="footer_tagline" class="text-primary-400 text-xs leading-none mt-0.5">{t.footer_tagline}</div>
           </div>
         </div>
         <p data-i18n="footer_desc" class="text-gray-400 text-sm leading-relaxed mb-6">
-          Spesialis pembuatan pintu kayu jati asli Perhutani di Boyolali. Bersertifikat, kokoh, dan tahan lama untuk hunian impian Anda.
+          {t.footer_desc}
         </p>
-        <p data-i18n="footer_follow" class="text-gray-500 text-xs mb-3 tracking-widest uppercase">Ikuti Kami</p>
+        <p data-i18n="footer_follow" class="text-gray-500 text-xs mb-3 tracking-widest uppercase">{t.footer_follow}</p>
         <div class="flex gap-3">
           <a href="https://www.instagram.com/pintu_jati_minimalis" target="_blank" rel="noreferrer"
             class="inline-flex items-center gap-2 bg-surface-700 hover:bg-primary-500/20 border border-surface-600 hover:border-primary-500 text-gray-400 hover:text-white text-sm font-medium px-4 py-2.5 rounded-full transition-all duration-200">
@@ -42,17 +46,17 @@ const quickLinks = [
 
       <!-- Quick links -->
       <div>
-        <h4 data-i18n="footer_menu" class="text-white font-bold text-sm tracking-widest mb-5 uppercase">Menu</h4>
+        <h4 data-i18n="footer_menu" class="text-white font-bold text-sm tracking-widest mb-5 uppercase">{t.footer_menu}</h4>
         <ul class="space-y-3">
           {quickLinks.map(link => (
-            <li><a href={link.href} data-i18n={link.labelKey} class="text-gray-400 hover:text-primary-400 text-sm transition-colors duration-200"></a></li>
+            <li><a href={link.href} data-i18n={link.labelKey} class="text-gray-400 hover:text-primary-400 text-sm transition-colors duration-200">{t[link.labelKey as keyof typeof t]}</a></li>
           ))}
         </ul>
       </div>
 
       <!-- Contact -->
       <div>
-        <h4 data-i18n="footer_contact" class="text-white font-bold text-sm tracking-widest mb-5 uppercase">Kontak</h4>
+        <h4 data-i18n="footer_contact" class="text-white font-bold text-sm tracking-widest mb-5 uppercase">{t.footer_contact}</h4>
         <ul class="space-y-4">
           <li>
             <a href="https://wa.me/6281548315366?text=Halo%2C%20saya%20ingin%20konsultasi%20mengenai%20pintu%20jati%20minimalis" target="_blank" rel="noreferrer" class="flex items-center gap-3 text-gray-400 hover:text-white text-sm transition-colors">
@@ -82,8 +86,8 @@ const quickLinks = [
     </div>
 
     <div class="border-t border-surface-600 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p class="text-gray-500 text-xs">© {year} <span data-i18n="footer_copyright">Pintu Jati Minimalis. All rights reserved.</span></p>
-      <p data-i18n="footer_sub" class="text-gray-600 text-xs">Jati Perhutani Asli — Boyolali, Jawa Tengah</p>
+      <p class="text-gray-500 text-xs">© {year} <span data-i18n="footer_copyright">{t.footer_copyright}</span></p>
+      <p data-i18n="footer_sub" class="text-gray-600 text-xs">{t.footer_sub}</p>
     </div>
   </div>
 </footer>

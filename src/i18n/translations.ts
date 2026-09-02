@@ -1,5 +1,9 @@
 export const translations = {
   id: {
+    // Page / Layout
+    layout_title: 'Pintu Jati Minimalis – Spesialis Pintu Kayu Jati Perhutani Berkualitas Tinggi',
+    layout_desc: 'Pintu Jati Minimalis, spesialis pembuatan pintu kayu jati asli Perhutani di Boyolali. Bersertifikat, kokoh, tahan lama. Konsultasi gratis via WhatsApp.',
+
     // Navbar
     nav_home: 'Beranda',
     nav_video: 'Video',
@@ -99,6 +103,10 @@ export const translations = {
     wa_text: 'Halo%2C%20saya%20ingin%20konsultasi%20mengenai%20pintu%20jati%20minimalis',
   },
   en: {
+    // Page / Layout
+    layout_title: 'Pintu Jati Minimalis – Specialist in Premium Teak Wood Doors',
+    layout_desc: 'Pintu Jati Minimalis, specialist in making authentic certified teak wood doors in Boyolali, Central Java. Premium, sturdy, and durable. Free consultation via WhatsApp.',
+
     // Navbar
     nav_home: 'Home',
     nav_video: 'Videos',

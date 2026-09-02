@@ -1,21 +1,26 @@
 ---
 import '../styles/global.css'
+import { translations } from '../i18n/translations'
+import type { Lang } from '../i18n/translations'
 
 interface Props {
+  lang?: Lang
   title?: string
   description?: string
   canonical?: string
 }
 
+const md = { id: 'https://pintujatiminimalis.my.id', en: 'https://pintujatiminimalis.my.id/en' }
 const {
-  title = 'Pintu Jati Minimalis – Spesialis Pintu Kayu Jati Perhutani Berkualitas Tinggi',
-  description = 'Pintu Jati Minimalis, spesialis pembuatan pintu kayu jati asli Perhutani di Boyolali. Bersertifikat, kokoh, tahan lama. Konsultasi gratis via WhatsApp.',
-  canonical = 'https://pintujatiminimalis.my.id',
+  lang = 'id',
+  title = translations[lang].layout_title,
+  description = translations[lang].layout_desc,
+  canonical = md[lang],
 } = Astro.props
 ---
 
 <!doctype html>
-<html lang="id">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,6 +28,9 @@ const {
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0e151b" />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="id" href="https://pintujatiminimalis.my.id" />
+    <link rel="alternate" hreflang="en" href="https://pintujatiminimalis.my.id/en" />
+    <link rel="alternate" hreflang="x-default" href="https://pintujatiminimalis.my.id" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -33,7 +41,7 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="https://pintujatiminimalis.my.id/og-image.jpg" />
-    <meta property="og:locale" content="id_ID" />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'id_ID'} />
     <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:site_name" content="Pintu Jati Minimalis" />
 

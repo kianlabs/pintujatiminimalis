@@ -1,4 +1,8 @@
 ---
+import { translations } from '../i18n/translations'
+import type { Lang } from '../i18n/translations'
+const { lang = 'id' } = Astro.props
+const t = translations[lang]
 const advantages = [
   { titleKey: 'adv_1_title', descKey: 'adv_1_desc', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
   { titleKey: 'adv_2_title', descKey: 'adv_2_desc', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0' },
@@ -16,10 +20,10 @@ const stats = [
 <section id="tentang" class="py-12 sm:py-24 bg-surface-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div id="adv-heading" class="text-center mb-16">
-      <span data-i18n="adv_label" class="text-primary-400 text-xs font-bold uppercase tracking-[0.2em] mb-3 block">Mengapa Kami</span>
-      <h2 data-i18n="adv_title" class="text-4xl lg:text-5xl font-black text-white mb-4">Keunggulan Pintu Jati Perhutani</h2>
+      <span data-i18n="adv_label" class="text-primary-400 text-xs font-bold uppercase tracking-[0.2em] mb-3 block">{t.adv_label}</span>
+      <h2 data-i18n="adv_title" class="text-4xl lg:text-5xl font-black text-white mb-4">{t.adv_title}</h2>
       <p data-i18n="adv_desc" class="text-gray-400 text-lg max-w-xl mx-auto">
-        Kami tidak sekadar membuat pintu — kami menghadirkan pintu jati Perhutani asli yang bertahan lama dan memperindah rumah Anda.
+        {t.adv_desc}
       </p>
     </div>
 
@@ -29,8 +33,8 @@ const stats = [
           <div class="w-12 h-12 rounded-xl bg-primary-500/20 flex items-center justify-center mb-4 group-hover:bg-primary-500/30 transition-colors duration-300">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary-400"><path d={icon}/></svg>
           </div>
-          <h3 data-i18n={titleKey} class="text-white font-bold text-lg mb-2"></h3>
-          <p data-i18n={descKey} class="text-gray-400 text-sm leading-relaxed"></p>
+          <h3 data-i18n={titleKey} class="text-white font-bold text-lg mb-2">{t[titleKey as keyof typeof t]}</h3>
+          <p data-i18n={descKey} class="text-gray-400 text-sm leading-relaxed">{t[descKey as keyof typeof t]}</p>
         </div>
       ))}
     </div>
@@ -39,7 +43,7 @@ const stats = [
       {stats.map(({ value, labelKey }) => (
         <div class="bg-surface-900 rounded-2xl p-6 text-center border border-surface-600">
           <div class="text-primary-400 text-4xl font-black mb-1">{value}</div>
-          <div data-i18n={labelKey} class="text-gray-400 text-sm font-medium"></div>
+          <div data-i18n={labelKey} class="text-gray-400 text-sm font-medium">{t[labelKey as keyof typeof t]}</div>
         </div>
       ))}
     </div>
