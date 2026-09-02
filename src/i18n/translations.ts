@@ -102,7 +102,7 @@ export const translations = {
 
     // Hero
     hero_title_1: 'Minimalist Teak Wood Door',
-    hero_title_2: 'Elegant & Timeless',
+    hero_title_2: 'Original Teak, Built to Last',
     hero_subtitle: 'Pintu Jati Minimalis crafts doors from authentic certified teak wood — sturdy, durable, and built to last for your dream home.',
     hero_pill_1_title: 'Certified Teak Wood',
     hero_pill_1_desc: 'Certified, legal & trusted',
