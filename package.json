@@ -12,15 +12,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^6.0.5",
     "@astrojs/sitemap": "^3.7.4",
-    "@tailwindcss/vite": "^4.3.3",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.5",
     "astro": "^7.2.10",
-    "gsap": "^3.15.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
+    "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "tailwindcss": "^4.3.3"
   },
   "allowScripts": {

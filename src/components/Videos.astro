@@ -32,7 +32,7 @@ const videos = Array.from({ length: 30 }, (_, i) => ({
           <div class="absolute inset-0 bg-surface-900/30 group-hover:bg-surface-900/10 transition-colors duration-300"></div>
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/40 flex items-center justify-center group-hover:bg-primary-500/80 group-hover:border-primary-400 transition-all duration-300">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="white" class="ml-1"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white" class="ml-1" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             </div>
           </div>
           <div class="absolute top-2 left-2 bg-surface-900/70 text-white text-xs font-bold px-2 py-0.5 rounded-md">
@@ -46,7 +46,7 @@ const videos = Array.from({ length: 30 }, (_, i) => ({
     <div id="load-more-wrap" class="text-center mb-16">
       <button id="load-more-btn"
         class="inline-flex items-center gap-2 bg-surface-700 hover:bg-primary-500/20 border border-surface-600 hover:border-primary-500 text-gray-300 hover:text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-200">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         <span data-i18n="video_load_more">Tampilkan Lebih</span>
       </button>
     </div>
@@ -73,7 +73,7 @@ const videos = Array.from({ length: 30 }, (_, i) => ({
       <div class="text-center mt-8">
         <a href="https://www.tiktok.com/@ud.dwibarokahjati" target="_blank" rel="noreferrer"
           class="inline-flex items-center gap-2 bg-surface-700 hover:bg-primary-500/20 border border-surface-600 hover:border-primary-500 text-gray-300 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-200">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
           <span data-i18n="video_tiktok_btn">Lihat Semua Video di TikTok</span>
         </a>
       </div>
@@ -93,25 +93,25 @@ const videos = Array.from({ length: 30 }, (_, i) => ({
       playsinline
       preload="metadata"
     ></video>
-    <!-- Close — overlay pojok kanan atas -->
+    <!-- Close -->
     <button id="modal-close"
       class="absolute top-2 right-2 flex items-center justify-center w-9 h-9 rounded-full bg-black/60 text-white z-10"
       aria-label="Tutup">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <!-- Prev — overlay kiri tengah -->
+    <!-- Prev -->
     <button id="modal-prev"
       class="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-black/60 text-white z-10"
       aria-label="Sebelumnya">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
     </button>
-    <!-- Next — overlay kanan tengah -->
+    <!-- Next -->
     <button id="modal-next"
       class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-black/60 text-white z-10"
       aria-label="Berikutnya">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
     </button>
-    <!-- Counter — pojok kiri atas -->
+    <!-- Counter -->
     <div id="modal-counter" class="absolute top-2 left-2 text-white/60 text-xs font-medium bg-black/60 px-2 py-1 rounded-md z-10"></div>
   </div>
 </div>
@@ -127,7 +127,13 @@ const videos = Array.from({ length: 30 }, (_, i) => ({
     opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
     scrollTrigger: { trigger: '#video-heading', start: 'top 85%' }
   })
-  gsap.fromTo('#video-grid > *', { opacity: 0, y: 30, scale: 0.95 }, {
+
+  // Only animate initially visible cards (idx < 10)
+  const visibleCards = Array.from(
+    document.querySelectorAll<HTMLButtonElement>('.video-card')
+  ).filter(c => !c.classList.contains('hidden'))
+
+  gsap.fromTo(visibleCards, { opacity: 0, y: 30, scale: 0.95 }, {
     opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.04, ease: 'power2.out',
     scrollTrigger: { trigger: '#video-grid', start: 'top 85%' }
   })
@@ -138,16 +144,23 @@ const videos = Array.from({ length: 30 }, (_, i) => ({
   const modalPrev = document.getElementById('modal-prev')
   const modalNext = document.getElementById('modal-next')
   const modalCounter = document.getElementById('modal-counter')
-  const cards = document.querySelectorAll<HTMLButtonElement>('.video-card')
+  const allCards = document.querySelectorAll<HTMLButtonElement>('.video-card')
   let currentIdx = 0
+
+  // Returns only visible (shown) cards for modal navigation
+  function getVisibleCards(): HTMLButtonElement[] {
+    return Array.from(allCards).filter(c => !c.classList.contains('hidden'))
+  }
 
   function openModal(idx: number) {
     currentIdx = idx
-    const src = cards[idx].dataset.src || ''
+    const src = allCards[idx].dataset.src || ''
     modalVideo!.src = src
     modalVideo!.load()
     modalVideo!.play()
-    modalCounter!.textContent = `${idx + 1} / ${cards.length}`
+    const visible = getVisibleCards()
+    const visiblePos = visible.findIndex(c => c.dataset.idx === String(idx))
+    modalCounter!.textContent = `${visiblePos + 1} / ${visible.length}`
     modal!.classList.remove('hidden')
     modal!.classList.add('flex')
     document.body.style.overflow = 'hidden'
@@ -162,8 +175,11 @@ const videos = Array.from({ length: 30 }, (_, i) => ({
   }
 
   function navigate(dir: number) {
-    const next = (currentIdx + dir + cards.length) % cards.length
-    openModal(next)
+    const visible = getVisibleCards()
+    const currentVisibleIdx = visible.findIndex(c => c.dataset.idx === String(currentIdx))
+    const nextVisibleIdx = (currentVisibleIdx + dir + visible.length) % visible.length
+    const nextCard = visible[nextVisibleIdx]
+    openModal(Number(nextCard.dataset.idx))
   }
 
   // Load more
@@ -179,7 +195,7 @@ const videos = Array.from({ length: 30 }, (_, i) => ({
     loadMoreWrap?.remove()
   })
 
-  cards.forEach((card, idx) => {
+  allCards.forEach((card, idx) => {
     card.addEventListener('click', () => openModal(idx))
   })
 

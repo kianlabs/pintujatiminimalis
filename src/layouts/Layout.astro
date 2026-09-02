@@ -34,12 +34,14 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:image" content="https://pintujatiminimalis.my.id/og-image.jpg" />
     <meta property="og:locale" content="id_ID" />
+    <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:site_name" content="Pintu Jati Minimalis" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://pintujatiminimalis.my.id/og-image.jpg" />
 
     <!-- Structured Data: Local Business -->
     <script type="application/ld+json">
@@ -73,6 +75,14 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
     <title>{title}</title>
+
+    <!-- Sync lang attribute before first paint to avoid flash -->
+    <script is:inline>
+      ;(function () {
+        var lang = localStorage.getItem('lang')
+        if (lang === 'en') document.documentElement.lang = 'en'
+      })()
+    </script>
   </head>
   <body>
     <slot />
