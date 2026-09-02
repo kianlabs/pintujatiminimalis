@@ -6,7 +6,7 @@ const cncVideos = Array.from({ length: 4 }, (_, i) => ({
 }))
 ---
 
-<section id="cnc" class="py-24 bg-surface-800">
+<section id="cnc" class="py-12 sm:py-24 bg-surface-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <div id="cnc-heading" class="text-center mb-12">
@@ -45,13 +45,32 @@ const cncVideos = Array.from({ length: 4 }, (_, i) => ({
 </section>
 
 <!-- Modal Player -->
-<div id="cnc-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm p-4">
-  <div class="relative w-full max-w-sm mx-auto">
-    <button id="cnc-modal-close" class="absolute -top-12 right-0 text-white/70 hover:text-white transition-colors z-10" aria-label="Tutup">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+<div id="cnc-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/95">
+  <div class="relative w-full h-full flex items-center justify-center">
+    <video id="cnc-modal-video"
+      class="h-full w-auto max-w-full rounded-none bg-black"
+      style="max-height: 100vh; aspect-ratio: 9/16; object-fit: contain;"
+      controls playsinline preload="metadata"></video>
+    <!-- Close — overlay pojok kanan atas -->
+    <button id="cnc-modal-close"
+      class="absolute top-2 right-2 flex items-center justify-center w-9 h-9 rounded-full bg-black/60 text-white z-10"
+      aria-label="Tutup">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <video id="cnc-modal-video" class="w-full rounded-2xl aspect-[9/16] bg-black object-contain" controls playsinline preload="metadata"></video>
-    <div id="cnc-modal-counter" class="text-center text-white/50 text-sm mt-3"></div>
+    <!-- Prev — overlay kiri tengah -->
+    <button id="cnc-modal-prev"
+      class="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-black/60 text-white z-10"
+      aria-label="Sebelumnya">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <!-- Next — overlay kanan tengah -->
+    <button id="cnc-modal-next"
+      class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-black/60 text-white z-10"
+      aria-label="Berikutnya">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <!-- Counter — pojok kiri atas -->
+    <div id="cnc-modal-counter" class="absolute top-2 left-2 text-white/60 text-xs font-medium bg-black/60 px-2 py-1 rounded-md z-10"></div>
   </div>
 </div>
 
@@ -72,13 +91,18 @@ const cncVideos = Array.from({ length: 4 }, (_, i) => ({
   const modal = document.getElementById('cnc-modal')
   const modalVideo = document.getElementById('cnc-modal-video') as HTMLVideoElement
   const modalClose = document.getElementById('cnc-modal-close')
+  const modalPrev = document.getElementById('cnc-modal-prev')
+  const modalNext = document.getElementById('cnc-modal-next')
   const modalCounter = document.getElementById('cnc-modal-counter')
+  const cards = document.querySelectorAll<HTMLButtonElement>('.cnc-card')
+  let currentIdx = 0
 
-  function openModal(src: string, idx: number) {
-    modalVideo!.src = src
+  function openModal(idx: number) {
+    currentIdx = idx
+    modalVideo!.src = cards[idx].dataset.src || ''
     modalVideo!.load()
     modalVideo!.play()
-    modalCounter!.textContent = `CNC ${idx + 1} / 4`
+    modalCounter!.textContent = `CNC ${idx + 1} / ${cards.length}`
     modal!.classList.remove('hidden')
     modal!.classList.add('flex')
     document.body.style.overflow = 'hidden'
@@ -92,11 +116,18 @@ const cncVideos = Array.from({ length: 4 }, (_, i) => ({
     document.body.style.overflow = ''
   }
 
-  document.querySelectorAll<HTMLButtonElement>('.cnc-card').forEach((card, idx) => {
-    card.addEventListener('click', () => openModal(card.dataset.src || '', idx))
+  function navigate(dir: number) {
+    const next = (currentIdx + dir + cards.length) % cards.length
+    openModal(next)
+  }
+
+  cards.forEach((card, idx) => {
+    card.addEventListener('click', () => openModal(idx))
   })
 
   modalClose?.addEventListener('click', closeModal)
+  modalPrev?.addEventListener('click', () => navigate(-1))
+  modalNext?.addEventListener('click', () => navigate(1))
   modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal() })
   document.addEventListener('keydown', (e) => {
     if (modal?.classList.contains('flex') && e.key === 'Escape') closeModal()
