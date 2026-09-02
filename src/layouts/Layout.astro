@@ -10,7 +10,8 @@ interface Props {
   canonical?: string
 }
 
-const md = { id: 'https://pintujatiminimalis.my.id', en: 'https://pintujatiminimalis.my.id/en' }
+const base = String(Astro.site).replace(/\/+$/, '')
+const md = { id: base, en: base + '/en' }
 const {
   lang = 'id',
   title = translations[lang].layout_title,
@@ -28,9 +29,9 @@ const {
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0e151b" />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="id" href="https://pintujatiminimalis.my.id" />
-    <link rel="alternate" hreflang="en" href="https://pintujatiminimalis.my.id/en" />
-    <link rel="alternate" hreflang="x-default" href="https://pintujatiminimalis.my.id" />
+    <link rel="alternate" hreflang="id" href={base} />
+    <link rel="alternate" hreflang="en" href={base + '/en'} />
+    <link rel="alternate" hreflang="x-default" href={base} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -40,7 +41,7 @@ const {
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://pintujatiminimalis.my.id/og-image.jpg" />
+    <meta property="og:image" content={base + '/og-image.jpg'} />
     <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'id_ID'} />
     <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:site_name" content="Pintu Jati Minimalis" />
@@ -49,33 +50,32 @@ const {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://pintujatiminimalis.my.id/og-image.jpg" />
+    <meta name="twitter:image" content={base + '/og-image.jpg'} />
 
     <!-- Structured Data: Local Business -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Pintu Jati Minimalis",
-        "description": "Spesialis pembuatan pintu kayu jati asli Perhutani di Boyolali, Jawa Tengah. Bersertifikat, kokoh, dan tahan lama.",
-        "url": "https://pintujatiminimalis.my.id",
-        "telephone": "+6281548315366",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Boyolali",
-          "addressLocality": "Boyolali",
-          "addressRegion": "Jawa Tengah",
-          "addressCountry": "ID"
-        },
-        "openingHours": "Mo-Su 08:00-17:00",
-        "sameAs": [
-          "https://www.instagram.com/pintu_jati_minimalis",
-          "https://www.tiktok.com/@ud.dwibarokahjati",
-          "https://wa.me/6281548315366"
-        ],
-        "priceRange": "$$",
-        "image": "https://pintujatiminimalis.my.id/og-image.jpg"
-      }
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      'name': 'Pintu Jati Minimalis',
+      'description': 'Spesialis pembuatan pintu kayu jati asli Perhutani di Boyolali, Jawa Tengah. Bersertifikat, kokoh, dan tahan lama.',
+      'url': base,
+      'telephone': '+6281548315366',
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': 'Boyolali',
+        'addressLocality': 'Boyolali',
+        'addressRegion': 'Jawa Tengah',
+        'addressCountry': 'ID'
+      },
+      'openingHours': 'Mo-Su 08:00-17:00',
+      'sameAs': [
+        'https://www.instagram.com/pintu_jati_minimalis',
+        'https://www.tiktok.com/@ud.dwibarokahjati',
+        'https://wa.me/6281548315366'
+      ],
+      'priceRange': '$$',
+      'image': base + '/og-image.jpg'
+    })}>
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
