@@ -1,9 +1,25 @@
 ---
 const products = [
-  { title: 'Pintu Utama', desc: 'Pintu depan kayu jati Perhutani solid dengan finishing premium, tampil megah dan elegan.', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80' },
-  { title: 'Pintu Kamar', desc: 'Pintu kamar minimalis dari kayu jati pilihan, ringan namun tetap kokoh dan tahan lama.', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80' },
-  { title: 'Pintu Panel', desc: 'Pintu panel motif klasik maupun modern, tersedia berbagai pilihan finishing cat & politur.', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80' },
-  { title: 'Pintu Custom', desc: 'Desain dan ukuran sesuai permintaan. Wujudkan pintu impian Anda bersama kami.', image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&q=80' },
+  {
+    title: 'Pintu CNC Minimalis',
+    desc: 'Motif minimalis modern diukir presisi dengan mesin CNC — garis bersih, simetris sempurna.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'
+  },
+  {
+    title: 'Pintu CNC Klasik',
+    desc: 'Ukiran motif klasik khas Jawa dieksekusi mesin CNC dari kayu jati Perhutani pilihan.',
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80'
+  },
+  {
+    title: 'Pintu CNC Panel',
+    desc: 'Desain panel geometris presisi tinggi hasil mesin CNC, finishing politur atau cat duco.',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80'
+  },
+  {
+    title: 'Pintu CNC Custom',
+    desc: 'Kirim desain Anda, kami wujudkan dengan mesin CNC. Ukuran & motif sesuai permintaan.',
+    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&q=80'
+  },
 ]
 ---
 
@@ -11,8 +27,23 @@ const products = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div id="products-heading" class="text-center mb-16">
       <span class="text-primary-400 text-xs font-bold uppercase tracking-[0.2em] mb-3 block">Produk Kami</span>
-      <h2 class="text-4xl lg:text-5xl font-black text-white mb-4">Jenis Pintu Jati Perhutani</h2>
-      <p class="text-gray-400 text-lg max-w-xl mx-auto">Berbagai pilihan pintu dari kayu jati asli Perhutani untuk setiap kebutuhan hunian Anda.</p>
+      <h2 class="text-4xl lg:text-5xl font-black text-white mb-4">Pintu Jati Ukiran Mesin CNC</h2>
+      <p class="text-gray-400 text-lg max-w-xl mx-auto">
+        Setiap pintu dikerjakan dengan mesin CNC berteknologi tinggi — presisi, rapi, dan konsisten dari kayu jati asli Perhutani.
+      </p>
+    </div>
+
+    <!-- CNC Highlight Badge -->
+    <div class="flex justify-center mb-12">
+      <div class="inline-flex items-center gap-3 bg-primary-500/10 border border-primary-500/30 rounded-2xl px-6 py-4">
+        <div class="w-10 h-10 rounded-xl bg-primary-500/20 flex items-center justify-center flex-shrink-0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary-400"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <div class="text-white font-bold text-sm">Teknologi Mesin CNC</div>
+          <div class="text-gray-400 text-xs">Ukiran presisi tinggi — akurat hingga milimeter</div>
+        </div>
+      </div>
     </div>
 
     <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -22,6 +53,9 @@ const products = [
             <img src={image} alt={title} width="600" height="400" loading="lazy"
               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             <div class="absolute inset-0 bg-surface-900/40 group-hover:bg-surface-900/20 transition-colors duration-300"></div>
+            <div class="absolute top-3 right-3 bg-primary-500/80 text-white text-xs font-bold px-2.5 py-1 rounded-lg backdrop-blur-sm">
+              CNC
+            </div>
           </div>
           <div class="p-6 text-center">
             <h3 class="text-white font-bold text-lg mb-2">{title}</h3>
@@ -29,6 +63,13 @@ const products = [
           </div>
         </div>
       ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="https://wa.me/6281548315366" target="_blank" rel="noreferrer"
+        class="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200">
+        Konsultasi Desain CNC Gratis
+      </a>
     </div>
   </div>
 </section>
