@@ -1,0 +1,76 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+  canonical?: string
+}
+
+const {
+  title = 'Pintu Jati Minimalis – Spesialis Pintu Kayu Jati Berkualitas Tinggi',
+  description = 'Pintu Jati Minimalis, spesialis pembuatan pintu kayu jati premium di Boyolali. Pintu utama, kamar, panel, dan custom. Konsultasi gratis via WhatsApp.',
+  canonical = 'https://pintujatiminimalis.my.id',
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#d4882a" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://pintujatiminimalis.my.id/og-image.jpg" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Pintu Jati Minimalis" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Structured Data: Local Business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Pintu Jati Minimalis",
+        "description": "Spesialis pembuatan pintu kayu jati premium di Boyolali, Jawa Tengah.",
+        "url": "https://pintujatiminimalis.my.id",
+        "telephone": "+6281318679190",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Perumahan Botanical Kartasura",
+          "addressLocality": "Boyolali",
+          "addressRegion": "Jawa Tengah",
+          "addressCountry": "ID"
+        },
+        "openingHours": "Mo-Su 08:00-17:00",
+        "sameAs": [
+          "https://instagram.com/pintujatiminimalis",
+          "https://wa.me/6281318679190"
+        ],
+        "priceRange": "$$",
+        "image": "https://pintujatiminimalis.my.id/og-image.jpg"
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
