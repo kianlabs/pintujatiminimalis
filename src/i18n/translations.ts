@@ -8,8 +8,8 @@ export const translations = {
     nav_wa: 'WhatsApp',
 
     // Hero
-    hero_title_1: 'Pintu Jati Perhutani',
-    hero_title_2: 'Minimalis & Elegan',
+    hero_title_1: 'Pintu Jati Minimalis',
+    hero_title_2: 'Asli Jati Perhutani',
     hero_subtitle: 'Pintu Jati Minimalis menghadirkan pintu dari kayu jati asli Perhutani — bersertifikat, kokoh, dan tahan lama untuk hunian impian Anda.',
     hero_pill_1_title: 'Jati Perhutani Asli',
     hero_pill_1_desc: 'Bersertifikat, legal & terpercaya',
