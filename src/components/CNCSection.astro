@@ -10,11 +10,11 @@ const cncVideos = Array.from({ length: 4 }, (_, i) => ({
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <div id="cnc-heading" class="text-center mb-12">
-      <span class="text-primary-400 text-xs font-bold uppercase tracking-[0.2em] mb-3 block">Teknologi Kami</span>
+      <span data-i18n="cnc_label" class="text-primary-400 text-xs font-bold uppercase tracking-[0.2em] mb-3 block">Teknologi Kami</span>
       <h2 class="text-4xl lg:text-5xl font-black text-white mb-4">
-        Dibuat dengan <span class="text-primary-300">Mesin CNC</span>
+        <span data-i18n="cnc_title_1">Dibuat dengan</span> <span class="text-primary-300" data-i18n="cnc_title_2">Mesin CNC</span>
       </h2>
-      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+      <p data-i18n="cnc_desc" class="text-gray-400 text-lg max-w-2xl mx-auto">
         Pintu Jati Minimalis menggunakan mesin CNC (Computer Numerical Control) untuk mengukir setiap detail pintu kayu jati Perhutani dengan presisi dan konsistensi tinggi.
       </p>
     </div>
@@ -51,25 +51,21 @@ const cncVideos = Array.from({ length: 4 }, (_, i) => ({
       class="w-auto rounded-none bg-black"
       style="height: 92dvh; max-width: 100%; aspect-ratio: 9/16; object-fit: contain;"
       controls playsinline preload="metadata"></video>
-    <!-- Close — overlay pojok kanan atas -->
     <button id="cnc-modal-close"
       class="absolute top-2 right-2 flex items-center justify-center w-9 h-9 rounded-full bg-black/60 text-white z-10"
       aria-label="Tutup">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <!-- Prev — overlay kiri tengah -->
     <button id="cnc-modal-prev"
       class="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-black/60 text-white z-10"
       aria-label="Sebelumnya">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
     </button>
-    <!-- Next — overlay kanan tengah -->
     <button id="cnc-modal-next"
       class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-black/60 text-white z-10"
       aria-label="Berikutnya">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
     </button>
-    <!-- Counter — pojok kiri atas -->
     <div id="cnc-modal-counter" class="absolute top-2 left-2 text-white/60 text-xs font-medium bg-black/60 px-2 py-1 rounded-md z-10"></div>
   </div>
 </div>
