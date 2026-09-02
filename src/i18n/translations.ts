@@ -27,6 +27,12 @@ export const translations = {
     cnc_title_2: 'Mesin CNC',
     cnc_desc: 'Pintu Jati Minimalis menggunakan mesin CNC (Computer Numerical Control) untuk mengukir setiap detail pintu kayu jati Perhutani dengan presisi dan konsistensi tinggi.',
 
+    // 3D Printing
+    tdp_label: 'Inovasi Kami',
+    tdp_title_1: 'Dibuat dengan',
+    tdp_title_2: 'Teknologi 3D Printing',
+    tdp_desc: 'Pintu Jati Minimalis menghadirkan inovasi desain menggunakan teknologi 3D printing untuk prototipe dan detail ornamen pintu yang presisi dan konsisten.',
+
     // Videos
     video_label: 'Video Kami',
     video_title: 'Lihat Proses & Hasil Kerja',
@@ -119,6 +125,12 @@ export const translations = {
     cnc_title_1: 'Crafted with',
     cnc_title_2: 'CNC Machine',
     cnc_desc: 'Pintu Jati Minimalis uses CNC (Computer Numerical Control) machines to carve every detail of our teak wood doors with high precision and consistency.',
+
+    // 3D Printing
+    tdp_label: 'Our Innovation',
+    tdp_title_1: 'Crafted with',
+    tdp_title_2: '3D Printing Technology',
+    tdp_desc: 'Pintu Jati Minimalis brings design innovation using 3D printing technology for precise and consistent door prototypes and ornamental details.',
 
     // Videos
     video_label: 'Our Videos',
