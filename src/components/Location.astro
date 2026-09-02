@@ -1,86 +1,62 @@
 ---
 ---
 
-<section id="kontak" class="py-24 bg-white">
+<section id="kontak" class="py-24 bg-surface-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <!-- Left -->
-      <div>
-        <span class="text-wood-500 text-xs font-bold uppercase tracking-[0.2em] mb-3 block">Lokasi Kami</span>
-        <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-4">
+    <div class="max-w-2xl mx-auto">
+      <div id="location-left">
+        <span class="text-primary-400 text-xs font-bold uppercase tracking-[0.2em] mb-3 block">Lokasi Kami</span>
+        <h2 class="text-4xl lg:text-5xl font-black text-white mb-4">
           Pesan Pintu<br />
-          <span class="text-wood-500">Langsung ke Kami</span>
+          <span class="text-primary-300">Langsung ke Kami</span>
         </h2>
-        <p class="text-gray-500 text-lg mb-8">
+        <p class="text-gray-400 text-lg mb-8">
           Kunjungi workshop kami atau hubungi via WhatsApp untuk konsultasi pintu langsung tanpa biaya.
         </p>
 
         <div class="space-y-5 mb-8">
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-wood-50 border border-wood-100 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-wood-600"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          {[
+            { icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0zM12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0', label: 'Alamat Workshop', value: 'Boyolali, Jawa Tengah', isLink: false },
+            { icon: 'M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 0v10l4 2', label: 'Jam Operasional', value: 'Buka Setiap Hari\n08.00 – 17.00 WIB', isLink: false },
+            { icon: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.68h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z', label: 'Telepon / WA', value: '0815-4831-5366 (Dwi Toto)\n0858-6341-3670 (Ferdi)', isLink: false },
+            { icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6', label: 'Instagram', value: '@pintujatiminimalis', isLink: true, href: 'https://instagram.com/pintujatiminimalis' },
+          ].map(({ icon, label, value, isLink, href }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-primary-500/20 border border-primary-500/30 flex items-center justify-center flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary-400"><path d={icon}/></svg>
+              </div>
+              <div>
+                <div class="text-white font-semibold mb-0.5">{label}</div>
+                {isLink
+                  ? <a href={href} target="_blank" rel="noreferrer" class="text-primary-400 hover:text-primary-300 text-sm font-medium transition-colors">{value}</a>
+                  : <div class="text-gray-400 text-sm whitespace-pre-line">{value}</div>
+                }
+              </div>
             </div>
-            <div>
-              <div class="text-gray-900 font-semibold mb-0.5">Alamat Workshop</div>
-              <div class="text-gray-500 text-sm">Perumahan Botanical Kartasura,<br />Boyolali, Jawa Tengah</div>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-wood-50 border border-wood-100 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-wood-600"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <div>
-              <div class="text-gray-900 font-semibold mb-0.5">Jam Operasional</div>
-              <div class="text-gray-500 text-sm">Buka Setiap Hari<br />08.00 – 17.00 WIB</div>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-wood-50 border border-wood-100 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-wood-600"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.68h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div>
-              <div class="text-gray-900 font-semibold mb-0.5">Telepon / WA</div>
-              <a href="https://wa.me/6281318679190" class="text-wood-500 hover:text-wood-600 text-sm font-medium transition-colors">0813-1867-9190</a>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-wood-50 border border-wood-100 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-wood-600"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </div>
-            <div>
-              <div class="text-gray-900 font-semibold mb-0.5">Instagram</div>
-              <a href="https://instagram.com/pintujatiminimalis" target="_blank" rel="noreferrer" class="text-wood-500 hover:text-wood-600 text-sm font-medium transition-colors">@pintujatiminimalis</a>
-            </div>
-          </div>
+          ))}
         </div>
 
-        <a
-          href="https://wa.me/6281318679190"
-          target="_blank"
-          rel="noreferrer"
-          class="inline-flex items-center gap-2.5 bg-green-wa hover:bg-green-wa-dark text-white font-bold px-7 py-4 rounded-full shadow-lg transition-all duration-300 hover:-translate-y-0.5"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Chat WhatsApp Sekarang
-        </a>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://wa.me/6281548315366" target="_blank" rel="noreferrer"
+            class="inline-flex items-center gap-2.5 bg-green-wa hover:bg-green-wa-dark text-white font-bold px-7 py-4 rounded-full shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat Dwi Toto
+          </a>
+          <a href="https://wa.me/6285863413670" target="_blank" rel="noreferrer"
+            class="inline-flex items-center gap-2.5 bg-green-wa hover:bg-green-wa-dark text-white font-bold px-7 py-4 rounded-full shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat Ferdi
+          </a>
+        </div>
       </div>
 
-      <!-- Right: Map -->
-      <div class="rounded-2xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-[450px] border border-gray-100">
-        <iframe
-          title="Lokasi Pintu Jati Minimalis"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.8!2d110.7344!3d-7.5589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a150344f5250d%3A0xe47ccc6657b4457b!2sPerumahan+Permata+Botanical+by+Menara+Santosa!5e0!3m2!1sid!2sid!4v1693000000000!5m2!1sid!2sid"
-          width="100%"
-          height="100%"
-          style="border:0"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
     </div>
   </div>
 </section>
+
+<script>
+  import { gsap } from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  gsap.registerPlugin(ScrollTrigger)
+  gsap.fromTo('#location-left', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#kontak', start: 'top 80%' } })
+</script>

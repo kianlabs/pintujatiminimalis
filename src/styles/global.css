@@ -1,24 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --color-wood-50: #fdf8f0;
-  --color-wood-100: #f9edd8;
-  --color-wood-200: #f2d9b0;
-  --color-wood-300: #e8be7e;
-  --color-wood-400: #dc9e4a;
-  --color-wood-500: #d4882a;
-  --color-wood-600: #c06e1f;
-  --color-wood-700: #a0551b;
-  --color-wood-800: #82441c;
-  --color-wood-900: #6b3919;
+  --color-primary-50:  #e8f4f6;
+  --color-primary-100: #c5e4ea;
+  --color-primary-200: #8ecad5;
+  --color-primary-300: #52adbf;
+  --color-primary-400: #2a96ab;
+  --color-primary-500: #1a7a8e;
+  --color-primary-600: #156474;
+  --color-primary-700: #0f4f5c;
+  --color-primary-800: #0a3840;
+  --color-primary-900: #0e151b;
+
+  --color-surface-900: #0e151b;
+  --color-surface-800: #10171d;
+  --color-surface-700: #162028;
+  --color-surface-600: #1e2d36;
+  --color-surface-500: #2a3f4a;
+  --color-surface-400: #3a5260;
+
+  --color-accent: #d4882a;
+  --color-accent-light: #dc9e4a;
 
   --color-green-wa: #25D366;
   --color-green-wa-dark: #1da851;
-
-  --color-dark-900: #0a0a0a;
-  --color-dark-800: #111111;
-  --color-dark-700: #1a1a1a;
-  --color-dark-600: #222222;
 
   --font-sans: 'Inter', system-ui, sans-serif;
 }
@@ -26,10 +31,10 @@
 @layer base {
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { @apply bg-white text-gray-800 antialiased; }
+  body { @apply bg-white text-gray-800 antialiased; font-family: var(--font-sans); }
 }
 
 @layer utilities {
-  .text-shadow { text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
-  .text-shadow-lg { text-shadow: 0 4px 16px rgba(0,0,0,0.7); }
+  .text-shadow { text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+  .text-shadow-lg { text-shadow: 0 4px 20px rgba(0,0,0,0.8); }
 }
