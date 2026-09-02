@@ -36,9 +36,12 @@ export function applyTranslations(lang: Lang) {
 
 export function initI18n() {
   const lang = getLang()
+  // Apply translations once
   applyTranslations(lang)
+  // Set toggle button text
   document.querySelectorAll<HTMLElement>('[data-lang-toggle]').forEach(el => {
     el.textContent = lang === 'id' ? 'EN' : 'ID'
+    el.setAttribute('aria-label', lang === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia')
     el.addEventListener('click', () => {
       const current = getLang()
       setLang(current === 'id' ? 'en' : 'id')
