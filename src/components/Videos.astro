@@ -87,8 +87,8 @@ const videos = Array.from({ length: 30 }, (_, i) => ({
   <div class="relative w-full h-full flex items-center justify-center">
     <video
       id="modal-video"
-      class="h-full w-auto max-w-full rounded-none bg-black"
-      style="max-height: 100vh; aspect-ratio: 9/16; object-fit: contain;"
+      class="w-auto rounded-none bg-black"
+      style="height: 92dvh; max-width: 100%; aspect-ratio: 9/16; object-fit: contain;"
       controls
       playsinline
       preload="metadata"
@@ -186,6 +186,7 @@ const videos = Array.from({ length: 30 }, (_, i) => ({
   modalClose?.addEventListener('click', closeModal)
   modalPrev?.addEventListener('click', () => navigate(-1))
   modalNext?.addEventListener('click', () => navigate(1))
+  modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal() })
 
   document.addEventListener('keydown', (e) => {
     if (!modal?.classList.contains('flex')) return

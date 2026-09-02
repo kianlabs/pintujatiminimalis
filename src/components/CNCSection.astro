@@ -48,8 +48,8 @@ const cncVideos = Array.from({ length: 4 }, (_, i) => ({
 <div id="cnc-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/95">
   <div class="relative w-full h-full flex items-center justify-center">
     <video id="cnc-modal-video"
-      class="h-full w-auto max-w-full rounded-none bg-black"
-      style="max-height: 100vh; aspect-ratio: 9/16; object-fit: contain;"
+      class="w-auto rounded-none bg-black"
+      style="height: 92dvh; max-width: 100%; aspect-ratio: 9/16; object-fit: contain;"
       controls playsinline preload="metadata"></video>
     <!-- Close — overlay pojok kanan atas -->
     <button id="cnc-modal-close"
