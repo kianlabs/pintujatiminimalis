@@ -25,17 +25,17 @@ export const translations = {
     hero_cta_ferdi: 'Chat Ferdi',
     hero_cta_video: 'Lihat Video',
 
-    // CNC Section
-    cnc_label: 'Teknologi Kami',
-    cnc_title_1: 'Dibuat dengan',
-    cnc_title_2: 'Mesin CNC',
-    cnc_desc: 'Pintu Jati Minimalis menggunakan mesin CNC (Computer Numerical Control) untuk mengukir setiap detail pintu kayu jati Perhutani dengan presisi dan konsistensi tinggi.',
+    // Ukiran Section
+    cnc_label: 'Ukiran Kami',
+    cnc_title_1: 'Detail',
+    cnc_title_2: 'Ukiran Presisi',
+    cnc_desc: 'Setiap pintu kayu jati Perhutani kami dipercantik dengan ukiran yang detail dan presisi — dikerjakan dengan ketelitian tinggi untuk menghasilkan motif yang rapi, konsisten, dan mewah.',
 
     // 3D Printing
     tdp_label: 'Inovasi Kami',
-    tdp_title_1: 'Dibuat dengan',
-    tdp_title_2: 'Teknologi 3D Printing',
-    tdp_desc: 'Pintu Jati Minimalis menghadirkan inovasi desain menggunakan teknologi 3D printing untuk prototipe dan detail ornamen pintu yang presisi dan konsisten.',
+    tdp_title_1: 'Proses Desain 3D',
+    tdp_title_2: 'Sebelum Menjadi Pintu',
+    tdp_desc: 'Sebelum kayu diproses menjadi pintu, setiap desain kami rancang dulu dalam bentuk 3D — untuk memastikan proporsi, motif ukiran, dan detail ornamen presisi dan sesuai keinginan Anda.',
 
     // Videos
     video_label: 'Video Kami',
@@ -128,17 +128,17 @@ export const translations = {
     hero_cta_ferdi: 'Chat Ferdi',
     hero_cta_video: 'Watch Videos',
 
-    // CNC Section
-    cnc_label: 'Our Technology',
-    cnc_title_1: 'Crafted with',
-    cnc_title_2: 'CNC Machine',
-    cnc_desc: 'Pintu Jati Minimalis uses CNC (Computer Numerical Control) machines to carve every detail of our teak wood doors with high precision and consistency.',
+    // Carving Section
+    cnc_label: 'Our Carvings',
+    cnc_title_1: 'Precise',
+    cnc_title_2: 'Wood Carvings',
+    cnc_desc: 'Every Perhutani teak door is beautified with detailed, precise carvings — crafted with great care for neat, consistent, and elegant motifs.',
 
     // 3D Printing
     tdp_label: 'Our Innovation',
-    tdp_title_1: 'Crafted with',
-    tdp_title_2: '3D Printing Technology',
-    tdp_desc: 'Pintu Jati Minimalis brings design innovation using 3D printing technology for precise and consistent door prototypes and ornamental details.',
+    tdp_title_1: '3D Design Process',
+    tdp_title_2: 'Before Becoming a Door',
+    tdp_desc: 'Before wood is crafted into a door, each design is first created in 3D — to ensure proportions, carving motifs, and ornamental details are precise and match your wishes.',
 
     // Videos
     video_label: 'Our Videos',

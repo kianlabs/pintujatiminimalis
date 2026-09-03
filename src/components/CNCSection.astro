@@ -11,7 +11,7 @@ const cncVideos = Array.from({ length: 4 }, (_, i) => {
   return {
     src: `/videos/cnc/cnc_${n}.mp4`,
     thumb: cncThumbs[`../assets/thumbnails/cnc/cnc_${n}.jpg`] as ImageMetadata,
-    label: `Proses CNC ${i + 1}`,
+    label: `Ukiran ${i + 1}`,
   }
 })
 ---
@@ -29,7 +29,7 @@ const cncVideos = Array.from({ length: 4 }, (_, i) => {
       </p>
     </div>
 
-    <!-- 4 Video Proses CNC -->
+    <!-- 4 Video Ukiran -->
     <div id="cnc-videos" class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
       {cncVideos.map(({ src, thumb, label }, idx) => (
         <button
@@ -46,7 +46,7 @@ const cncVideos = Array.from({ length: 4 }, (_, i) => {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="white" class="ml-1"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             </div>
           </div>
-          <div class="absolute top-2 left-2 bg-primary-500/80 text-white text-xs font-bold px-2 py-0.5 rounded-md">CNC</div>
+          <div class="absolute top-2 left-2 bg-primary-500/80 text-white text-xs font-bold px-2 py-0.5 rounded-md">Ukiran</div>
         </button>
       ))}
     </div>
@@ -103,6 +103,6 @@ const cncVideos = Array.from({ length: 4 }, (_, i) => {
     prevId: 'cnc-modal-prev',
     nextId: 'cnc-modal-next',
     counterId: 'cnc-modal-counter',
-    counterPrefix: 'CNC',
+    counterPrefix: 'Ukiran',
   })
 </script>
