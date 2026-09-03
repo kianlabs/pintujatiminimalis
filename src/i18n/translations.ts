@@ -27,9 +27,9 @@ export const translations = {
 
     // Ukiran Section
     cnc_label: 'Ukiran Kami',
-    cnc_title_1: 'Detail',
-    cnc_title_2: 'Ukiran Presisi',
-    cnc_desc: 'Setiap pintu kayu jati Perhutani kami dipercantik dengan ukiran yang detail dan presisi — dikerjakan dengan ketelitian tinggi untuk menghasilkan motif yang rapi, konsisten, dan mewah.',
+    cnc_title_1: 'Ukiran Dibuat dengan',
+    cnc_title_2: 'Mesin CNC',
+    cnc_desc: 'Setiap ukiran pada pintu kayu jati Perhutani kami dibuat menggunakan mesin CNC — menghasilkan detail motif yang presisi, rapi, dan konsisten untuk tampilan yang mewah dan tahan lama.',
 
     // 3D Printing
     tdp_label: 'Inovasi Kami',
@@ -130,9 +130,9 @@ export const translations = {
 
     // Carving Section
     cnc_label: 'Our Carvings',
-    cnc_title_1: 'Precise',
-    cnc_title_2: 'Wood Carvings',
-    cnc_desc: 'Every Perhutani teak door is beautified with detailed, precise carvings — crafted with great care for neat, consistent, and elegant motifs.',
+    cnc_title_1: 'Carvings Made with',
+    cnc_title_2: 'CNC Machine',
+    cnc_desc: 'Every carving on our Perhutani teak doors is made using CNC machines — delivering precise, neat, and consistent motif details for a luxurious and durable look.',
 
     // 3D Printing
     tdp_label: 'Our Innovation',
