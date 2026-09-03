@@ -57,7 +57,7 @@ const t = translations[lang]
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="lg:hidden max-h-0 overflow-hidden opacity-0 transition-all duration-300 bg-surface-800/98 backdrop-blur-md">
+  <div id="mobile-menu" class="lg:hidden max-h-0 overflow-hidden opacity-0 transition-all duration-300 bg-surface-800/95 backdrop-blur-md">
     <div class="px-4 pb-4 flex flex-col gap-1">
       {[
         ['nav_home','#beranda', t.nav_home],
@@ -75,24 +75,12 @@ const t = translations[lang]
 </nav>
 
 <script>
-  import { applyTranslations, getLang, setLang } from '../i18n/i18n'
-
-  // Sync toggle button label to stored lang on load
-  const lang = getLang()
-  document.querySelectorAll<HTMLElement>('[data-lang-toggle]').forEach(el => {
-    el.textContent = lang === 'id' ? 'EN' : 'ID'
-    el.setAttribute('aria-label', lang === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia')
-  })
+  import { getLang, setLang } from '../i18n/i18n'
 
   document.querySelectorAll<HTMLElement>('[data-lang-toggle]').forEach(el => {
     el.addEventListener('click', () => {
       const newLang = getLang() === 'id' ? 'en' : 'id'
       setLang(newLang)
-      document.querySelectorAll<HTMLElement>('[data-lang-toggle]').forEach(btn => {
-        btn.textContent = newLang === 'id' ? 'EN' : 'ID'
-        btn.setAttribute('aria-label', newLang === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia')
-      })
-      document.documentElement.lang = newLang
     })
   })
 

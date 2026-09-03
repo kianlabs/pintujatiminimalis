@@ -10,7 +10,8 @@ interface Props {
   canonical?: string
 }
 
-const base = String(Astro.site).replace(/\/+$/, '')
+const site = Astro.site ? String(Astro.site).replace(/\/+$/, '') : 'https://pintujatiminimalis-astro.vercel.app'
+const base = site
 const md = { id: base, en: base + '/en' }
 const {
   lang = 'id',
@@ -43,7 +44,7 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={base + '/og-image.jpg'} />
     <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'id_ID'} />
-    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content={lang === 'en' ? 'id_ID' : 'en_US'} />
     <meta property="og:site_name" content="Pintu Jati Minimalis" />
 
     <!-- Twitter Card -->
@@ -89,8 +90,10 @@ const {
     <!-- Sync lang attribute before first paint to avoid flash -->
     <script is:inline>
       ;(function () {
-        var lang = localStorage.getItem('lang')
-        if (lang === 'en') document.documentElement.lang = 'en'
+        try {
+          var stored = localStorage.getItem('lang')
+          if (stored === 'en' || stored === 'id') document.documentElement.lang = stored
+        } catch (e) {}
       })()
     </script>
   </head>
@@ -98,7 +101,9 @@ const {
     <slot />
     <script>
       import { applyTranslations, getLang } from '../i18n/i18n'
-      applyTranslations(getLang())
+      const lang = getLang()
+      document.documentElement.lang = lang
+      applyTranslations(lang)
     </script>
   </body>
 </html>
