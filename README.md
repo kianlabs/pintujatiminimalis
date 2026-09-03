@@ -36,18 +36,18 @@ Dibangun dengan **Astro** + **Tailwind CSS v4** + **GSAP**, dengan dukungan **du
 
 Situs sementara di-deploy ke Vercel dengan domain `https://pintujatiminimalis-astro.vercel.app`.
 
-### Mengembalikan ke domain produksi (`pintujatiminimalis.my.id`)
+### Mengembalikan ke domain produksi (`pintujatiminimalis.id`)
 
 Saat domain final siap, cukup ubah satu nilai di `astro.config.mjs`:
 
 ```js
-site: 'https://pintujatiminimalis.my.id'
+site: 'https://pintujatiminimalis.id'
 ```
 
 Semua referensi URL (canonical, `hreflang`, og/twitter image, JSON-LD, sitemap) otomatis mengikuti `site` karena `Layout.astro` membaca `Astro.site`. Jangan lupa juga ubah `public/robots.txt`:
 
 ```
-Sitemap: https://pintujatiminimalis.my.id/sitemap-index.xml
+Sitemap: https://pintujatiminimalis.id/sitemap-index.xml
 ```
 
 ## Commands

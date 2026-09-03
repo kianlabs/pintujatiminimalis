@@ -3,7 +3,7 @@ import tailwind from '@tailwindcss/vite'
 import sitemap from '@astrojs/sitemap'
 
 export default defineConfig({
-  site: 'https://pintujatiminimalis-astro.vercel.app',
+  site: 'https://pintujatiminimalis.id',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwind()],
