@@ -3,7 +3,7 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.tiktok.com https://*.tiktok.com https://*.tiktokcdn.com https://*.tiktokcdn-us.com https://*.ttwstatic.com; style-src 'self' 'unsafe-inline' https://*.tiktok.com https://*.tiktokcdn.com https://*.tiktokcdn-us.com https://*.ttwstatic.com; img-src 'self' data: https:; font-src 'self' data: https://*.tiktokcdn.com https://*.tiktokcdn-us.com https://*.ttwstatic.com; connect-src 'self' https://*.tiktok.com https://*.tiktokcdn.com https://*.tiktokcdn-us.com https://*.ttwstatic.com; frame-src https://www.tiktok.com https://*.tiktok.com; media-src 'self' https://*.tiktokcdn.com https://*.tiktokcdn-us.com https://*.ttwstatic.com blob:; frame-ancestors 'self'; base-uri 'self'; form-action 'self'" },
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
